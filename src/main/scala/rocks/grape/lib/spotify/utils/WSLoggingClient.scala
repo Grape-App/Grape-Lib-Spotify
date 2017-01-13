@@ -3,14 +3,13 @@ package rocks.grape.lib.spotify.utils
 import com.google.inject.Inject
 import play.api.Logger
 import play.api.libs.json.Reads
+import play.api.libs.ws.WSClient
 import rocks.grape.lib.commons.ServiceResult.ServiceResult
 import rocks.grape.lib.commons.{ServiceError, ServiceResult}
 
 import scala.concurrent.ExecutionContext
 
-class WSLoggingClient @Inject()(
-    ws: WSClient)(
-    implicit ec: ExecutionContext) {
+class WSLoggingClient @Inject()(ws: WSClient)(implicit ec: ExecutionContext) {
 
   private val logger: Logger = Logger(this.getClass)
 
