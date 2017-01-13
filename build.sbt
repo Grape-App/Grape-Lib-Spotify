@@ -45,6 +45,7 @@ testOptions in Test += Tests.Argument("-oF") // print stack-traces in tests
 // LIBRARY DEPENDENCIES
 // -------------------------------------------------------------------------------------------------
 libraryDependencies ++= Seq(
+  ws,
   "rocks.grape" %% "grape-commons" % "0.1.0",
   "org.typelevel" %% "cats" % "0.8.1",
   "com.typesafe.play" %% "play" % "2.5.10",
