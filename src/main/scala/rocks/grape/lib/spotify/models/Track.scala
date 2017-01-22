@@ -1,6 +1,6 @@
 package rocks.grape.lib.spotify.models
 
-import play.api.libs.json.{Format, Json}
+import play.api.libs.json._
 
 case class Track(
     album: Album,
@@ -23,4 +23,7 @@ case class Track(
 
 object Track {
   implicit val formats: Format[Track] = Json.format[Track]
+  val readsSeq: Reads[Seq[Track]] = new Reads[Seq[Track]] {
+    def reads(json: JsValue): JsResult[Seq[Track]] = JsSuccess((json \ "tracks").as[Seq[Track]])
+  }
 }
