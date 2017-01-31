@@ -1,6 +1,3 @@
-import de.johoop.cpd4sbt.Language.Scala
-import de.johoop.cpd4sbt.ReportType.XML
-
 // -------------------------------------------------------------------------------------------------
 // CONSTANTS
 // -------------------------------------------------------------------------------------------------
@@ -46,12 +43,12 @@ testOptions in Test += Tests.Argument("-oF") // print stack-traces in tests
 // -------------------------------------------------------------------------------------------------
 libraryDependencies ++= Seq(
   ws,
-  "rocks.grape" %% "grape-commons" % "0.1.0",
-  "org.typelevel" %% "cats" % "0.8.1",
-  "com.typesafe.play" %% "play" % "2.5.10",
-  "io.swagger" % "swagger-annotations" % "1.5.10",
+  "rocks.grape" %% "grape-commons" % "0.1.1",
+  "org.typelevel" %% "cats" % "0.9.0",
+  "com.typesafe.play" %% "play" % "2.5.12",
+  "io.swagger" % "swagger-annotations" % "1.5.12",
 
-  "ch.qos.logback" % "logback-classic" % "1.1.8" % "test",
+  "ch.qos.logback" % "logback-classic" % "1.1.9" % "test",
   "org.mockito" % "mockito-core" % "1.10.19" % "test",
   "org.scalatestplus.play" %% "scalatestplus-play" % "1.5.1" % "test"
 )
@@ -72,21 +69,8 @@ publishTo := {
   }
 }
 publishMavenStyle := true
-
 publishArtifact in Test := false
-
 pomIncludeRepository := { _ => false }
-
-// -------------------------------------------------------------------------------------------------
-// Copy-Paste-Detector Configuration (cpd)
-//   - use "sbt cpd" to check against copy-paste errors
-// -------------------------------------------------------------------------------------------------
-cpdSettings
-cpdLanguage := Scala
-cpdMinimumTokens := 100
-cpdReportType := XML
-cpdSourceDirectories in Compile := Seq(baseDirectory.value / "app")
-cpdIgnoreAnnotations := true
 
 
 // -------------------------------------------------------------------------------------------------
